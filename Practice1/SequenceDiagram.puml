@@ -1,0 +1,66 @@
+@startuml
+actor Player
+participant "GameEngine / UI" as UI
+participant "GameSession" as Session
+participant "AdaptationEngine" as Adapt
+participant "LevelStore" as Store
+participant "Question" as Q
+participant "ScoreTracker" as Score
+participant "AchievementManager" as Ach
+participant "StatisticsService" as Stats
+participant "NotificationService" as Notify
+
+Player -> UI : StartLevel(levelId)
+UI -> Session : CreateSession(playerId, levelId)
+activate Session
+Session -> Store : LoadLevel(levelId)
+activate Store
+Store --> Session : Level(with questions meta)
+deactivate Store
+Session -> Adapt : Initialize(playerProfile, levelMeta)
+activate Adapt
+Adapt --> Session : initialDifficulty
+deactivate Adapt
+deactivate Session
+
+
+loop for each question
+    Session -> Adapt : RequestNextQuestionDifficulty()
+    Adapt -> Store : GetQuestionByDifficulty(difficulty)
+    activate Store
+    Store --> Session : Question(qId, text, options, difficulty)
+    deactivate Store
+    Session -> UI : PresentQuestion(q)
+    Player -> UI : SubmitAnswer(qId, answer)
+    UI -> Session : AnswerSubmitted(qId, answer)
+    activate Session
+    Session -> Q : Evaluate(answer)
+    activate Q
+    Q --> Session : result(correct/incorrect), timeTaken
+    deactivate Q
+    Session -> Score : Update(result, difficulty)
+    activate Score
+    Score --> Session : newScore, progress
+    deactivate Score
+    Session -> Ach : CheckAchievements(playerId, progress)
+    activate Ach
+    Ach --> Session : newAchievements (if any)
+    deactivate Ach
+    deactivate Session
+    Session -> Stats : PushUpdate(playerId, progress, score)
+    Stats --> Notify : RealTimeUpdate(payload)
+    activate Notify
+    Notify --> UI : DisplayUpdate(payload)
+    deactivate Notify
+end
+
+Session -> Adapt : ReportPerformance(sessionSummary)
+activate Adapt
+Adapt --> Session : AdjustDifficultyForNextLevel
+deactivate Adapt
+Session -> UI : EndLevel(summary)
+UI -> Player : ShowResults, Achievements
+
+hide footbox
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+top to bottom direction
+skinparam dpi 150
+skinparam packageStyle rectangle
+
+actor Player as P
+actor Admin as A
+actor "External Analytics Service" as EAS
+
+rectangle "Adaptive Learning Game System" {
+
+    ' --- Блок гравця ---
+    (Start Level) as UC1
+    (Answer Question) as UC2
+    (View Achievements) as UC3
+    (Receive Real-time Stats) as UC4
+    
+    ' --- Блок системи ---
+    (Adapt Difficulty) as UC5
+    (Update Statistics) as UC6
+    (Grant Achievement) as UC7
+    
+    ' --- Блок адміністратора ---
+    (Add/Edit Mission) as UC8
+    (Configure Adaptation) as UC9
+}
+
+' --- асоціації акторів ---
+P -left- UC1
+P -left- UC2
+P -left- UC3
+P -left- UC4
+
+A -right- UC8
+A -right- UC9
+
+EAS -down- UC6
+
+' --- зв’язки між прецедентами ---
+UC1 .> UC5 : <<include>>
+UC2 ..> UC5 : <<include>>
+UC2 ..> UC6 : <<include>>
+UC2 .> UC7 : <<include>>
+UC7 ..> UC3 : <<extend>>
+UC6 ..> UC4 : <<extend>>
+
+@enduml

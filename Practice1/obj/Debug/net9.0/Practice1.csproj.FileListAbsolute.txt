@@ -1,0 +1,29 @@
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.exe
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.deps.json
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.runtimeconfig.json
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.dll
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.pdb
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.GeneratedMSBuildEditorConfig.editorconfig
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.AssemblyInfoInputs.cache
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.AssemblyInfo.cs
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.csproj.CoreCompileInputs.cache
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.dll
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\refint\Practice1.dll
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.pdb
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.genruntimeconfig.cache
+F:\KingstonData\Практичні\Архітектура програмного забезпечення\SoftwareArchitecture\Practice1\obj\Debug\net9.0\ref\Practice1.dll
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.exe
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.deps.json
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.runtimeconfig.json
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.dll
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\bin\Debug\net9.0\Practice1.pdb
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.AssemblyInfoInputs.cache
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.AssemblyInfo.cs
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.csproj.CoreCompileInputs.cache
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.sourcelink.json
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.dll
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\refint\Practice1.dll
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.pdb
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\Practice1.genruntimeconfig.cache
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice1\obj\Debug\net9.0\ref\Practice1.dll

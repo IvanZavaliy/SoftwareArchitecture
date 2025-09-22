@@ -1,0 +1,66 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Player {
+  +Guid Id
+  +string Name
+  +Profile profile
+  +List<Achievement> Achievements
+  +StartLevel(levelId)
+}
+
+class Level {
+  +Guid Id
+  +string Title
+  +List<Question> Questions
+  +DifficultyPolicy difficultyPolicy
+}
+
+class Question {
+  +Guid Id
+  +string Text
+  +List<string> Options
+  +string CorrectAnswer
+  +int Difficulty
+  +bool Evaluate(answer)
+}
+
+class GameSession {
+  +Guid Id
+  +Player player
+  +Level level
+  +int CurrentIndex
+  +int Score
+  +Start()
+  +SubmitAnswer(questionId, answer)
+}
+
+class AdaptationEngine {
+  +AdaptationConfig config
+  +int SuggestDifficulty(GameSession session)
+  +void ReportPerformance(GameSession session)
+}
+
+class AchievementManager {
+  +List<AchievementRule> rules
+  +List<Achievement> Check(GameSession session)
+}
+
+class StatisticsService {
+  +PushUpdate(sessionId, payload)
+  +GetPlayerStats(playerId)
+}
+
+class Admin {
+  +CreateLevel(Level level)
+  +ConfigureAdaptation(AdaptationConfig cfg)
+}
+
+Player "1" -- "0..*" GameSession
+GameSession "1" *-- "1" Level
+Level "1" *-- "0..*" Question
+GameSession "1" o-- "1" AdaptationEngine : uses
+GameSession "1" --> "1" AchievementManager : uses
+GameSession "1" --> "1" StatisticsService : uses
+
+@enduml
