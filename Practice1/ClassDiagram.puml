@@ -56,11 +56,11 @@ class Admin {
   +ConfigureAdaptation(AdaptationConfig cfg)
 }
 
-Player "1" -- "0..*" GameSession
+Player "1" -- "1" GameSession
 GameSession "1" *-- "1" Level
 Level "1" *-- "0..*" Question
 GameSession "1" o-- "1" AdaptationEngine : uses
 GameSession "1" --> "1" AchievementManager : uses
-GameSession "1" --> "1" StatisticsService : uses
+GameSession "1" -- "1" StatisticsService : uses
 
 @enduml

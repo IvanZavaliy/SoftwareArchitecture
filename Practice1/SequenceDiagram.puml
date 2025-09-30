@@ -11,7 +11,9 @@ participant "StatisticsService" as Stats
 participant "NotificationService" as Notify
 
 Player -> UI : StartLevel(levelId)
+activate UI
 UI -> Session : CreateSession(playerId, levelId)
+deactivate UI
 activate Session
 Session -> Store : LoadLevel(levelId)
 activate Store
@@ -26,13 +28,19 @@ deactivate Session
 
 loop for each question
     Session -> Adapt : RequestNextQuestionDifficulty()
+    activate Session
+    activate Adapt
     Adapt -> Store : GetQuestionByDifficulty(difficulty)
+    deactivate Adapt
     activate Store
     Store --> Session : Question(qId, text, options, difficulty)
     deactivate Store
     Session -> UI : PresentQuestion(q)
+    deactivate Session
+    activate UI
     Player -> UI : SubmitAnswer(qId, answer)
     UI -> Session : AnswerSubmitted(qId, answer)
+    deactivate UI
     activate Session
     Session -> Q : Evaluate(answer)
     activate Q
@@ -46,20 +54,29 @@ loop for each question
     activate Ach
     Ach --> Session : newAchievements (if any)
     deactivate Ach
-    deactivate Session
     Session -> Stats : PushUpdate(playerId, progress, score)
+    deactivate Session
+    activate Stats
     Stats --> Notify : RealTimeUpdate(payload)
+    deactivate Stats
     activate Notify
     Notify --> UI : DisplayUpdate(payload)
     deactivate Notify
+    activate UI
+    UI --> Player : ShowLevelInformation
+    deactivate UI
 end
 
 Session -> Adapt : ReportPerformance(sessionSummary)
+activate Session
 activate Adapt
 Adapt --> Session : AdjustDifficultyForNextLevel
 deactivate Adapt
 Session -> UI : EndLevel(summary)
+deactivate Session
+activate UI
 UI -> Player : ShowResults, Achievements
+deactivate UI
 
 hide footbox
 
