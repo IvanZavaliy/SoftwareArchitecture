@@ -1,0 +1,43 @@
+﻿@startuml
+title Діаграма А.4 Оплата акредитива
+
+actor Продавець
+actor "Співробітник банку\nПродавця" as BankEmployee
+participant TFXWeb
+participant "Сервіс UI" as UIService
+participant "Менеджер контрактів" as ContractManager
+participant "Менеджер контрагентів" as CounterpartyManager
+participant "Платіжний сервіс" as PaymentService
+participant "Платіжний шлюз" as PaymentGateway
+
+Продавець -> BankEmployee: <<email>>\nВідвантажувальні документи
+BankEmployee -> TFXWeb: Знайти акредитив для відвантаження 123
+TFXWeb -> UIService: отриматиАкредитивДляВідвантаження(123)
+UIService -> ContractManager: отриматиДокументиЗаМетаданими(shipment_id=123)
+ContractManager -->> UIService: cL: Список<Контракт>
+UIService -->> TFXWeb: lcL: Список<Акредитив>
+TFXWeb -->> BankEmployee: <<ui>>\nАкредитив для 123
+
+activate BankEmployee
+BankEmployee -> BankEmployee: Перевірити відвант. документи\nу порівнянні з акредитивом
+deactivate BankEmployee
+
+BankEmployee -> TFXWeb: Позначити акредитив 456 для оплати
+TFXWeb -> UIService: оплатитиАкредитив(456)
+UIService -> ContractManager: встановитиСтанКонтракту(456, ГОТОВИЙ_ДО_ОПЛАТИ)
+UIService -> CounterpartyManager: здійснитиПлатіж(c456.одержувач, c456.сума, c456.платник, НЕГАЙНО)
+CounterpartyManager -> PaymentService: доручитиНегайнийПлатіж(платник, одержувач, сума)
+PaymentService -> PaymentGateway: пов: Успіх(транзакція=98765)
+PaymentGateway -->> PaymentService: пов: Успіх(транзакція=98765)
+PaymentService -->> CounterpartyManager: пов: Успіх(транзакція=98765)
+CounterpartyManager -> ContractManager: рухКоштів(c456.одержувач, c456.платник, c456.сума)
+ContractManager -->> CounterpartyManager: пов: Успіх(ОПЛАЧЕНО)
+CounterpartyManager -->> UIService: пов: Успіх(ОПЛАЧЕНО)
+UIService -->> TFXWeb: пов: Успіх(ОПЛАЧЕНО)
+
+TFXWeb -> BankEmployee: Перевірити статус акредитива 456
+BankEmployee -> Продавець: <<email>>\nПідтверджено як оплачений
+
+hide footbox
+
+@enduml

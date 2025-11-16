@@ -1,0 +1,39 @@
+﻿@startuml
+title Діаграма А.3 Сценарій створення акредитива — продавець
+
+actor Продавець
+participant TFXWeb
+participant "Сервіс UI" as UIService
+participant "Менеджер контрактів" as ContractManager
+participant "Менеджер зборів\nта комісій" as FeesManager
+participant "Менеджер документів" as DocManager
+participant "Сховище документів" as DocStore
+participant "Менеджер контрагентів" as CounterpartyManager
+
+Продавець -> TFXWeb: перевірити наявність нового акредитива
+TFXWeb -> UIService: перевірити наявність нового акредитива
+UIService -> ContractManager: перевірити акредитив (ID Продавця)
+ContractManager -->> UIService: Акредитив: L/C789
+UIService -->> TFXWeb: Акредитив: L/C789
+
+Продавець -> TFXWeb: переглянути деталі
+TFXWeb -> UIService: переглянути акредитив (L/C789)
+UIService -> DocManager: переглянути акредитив (L/C789)
+DocManager -->> UIService: Акредитив (L/C789)
+UIService -->> TFXWeb: Акредитив: L/C789
+
+Продавець -> TFXWeb: оновити та затвердити акредитив
+TFXWeb -> UIService: затвердити акредитив (L/C789)
+UIService -> ContractManager: затвердити акредитив (L/C789)
+
+activate ContractManager
+ContractManager -> ContractManager: виконати правила валідації акредитива
+ContractManager -> FeesManager: перевірити збори та комісії
+ContractManager -> DocManager: оновити акредитив (L/C789)
+DocManager -> DocStore: оновити акредитив (L/C789)
+ContractManager -> CounterpartyManager: оновити деталі рахунку (ID Продавця)
+deactivate ContractManager
+
+hide footbox
+
+@enduml
