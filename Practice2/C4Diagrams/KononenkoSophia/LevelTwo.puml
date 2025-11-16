@@ -1,0 +1,55 @@
+﻿@startuml
+title Container diagram – EG User Account
+caption Last modified: Wed, 01 Feb 2022 17:37:38 GMT+0000
+
+skinparam rectangle {
+  RoundCorner 10
+  Shadowing false
+  FontSize 12
+  FontColor black
+  BorderColor #888
+}
+skinparam note {
+  BackgroundColor #FFF
+  BorderColor #AAA
+}
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+
+' === PERSON ===
+rectangle "Customer\n(Person)\n\nA EG customer with valid account" as Customer #4472C4
+
+' === SYSTEM BOUNDARY ===
+package "EG User Account [Software System]" #White {
+  
+  rectangle "Web App\n[Container: Node.js, JavaScript]\n\nRenders login page\nwith necessary assets" as WebApp #5B9BD5
+
+  rectangle "Single page app\n[Container: JavaScript and React]\n\nProvides user capabilities\nbased on their plan" as SPA #5B9BD5
+
+  rectangle "Mobile App\n[Container: Android]\n\nProvides user capabilities\nbased on their plan" as MobileApp #5B9BD5
+
+  rectangle "Backend API app\n[Container: Node.js, JavaScript]\n\nProvides User account management\nvia JSON/HTTPS API" as Backend #5B9BD5
+
+  database "Database\n[Container: MariaDB]\n\nStores user accounts, billing, plans,\npayment details etc." as DB #5B9BD5
+}
+
+' === EXTERNAL SYSTEMS ===
+rectangle "Notifications\n[Software System]\n\nSends notification to user email and devices" as Notifications #A6A6A6
+
+rectangle "Payments\n[Software System]\n\nManages direct debit,\ncard payments" as Payments #A6A6A6
+
+
+' === CONNECTIONS ===
+Customer -[#555,dashed]-> WebApp : Visits egenrgy.com/login\nusing [HTTPS]
+Customer -[#555,dashed]-> SPA : Views account,\nsubmit readings using
+Customer -[#555,dashed]-> MobileApp : Views account,\nsubmit readings using
+Customer -[#555,dashed]-> Notifications : Sends notifications to
+
+WebApp -[#555,dashed]-> SPA : Delivers to user browser
+SPA -[#555,dashed]-> Backend : Makes API calls to\n[JSON/HTTPS]
+MobileApp -[#555,dashed]-> Backend : Makes API calls to\n[JSON/HTTPS]
+Backend -[#555,dashed]-> DB : Reads from and writes to\n[PDO]
+Backend -[#555,dashed]-> Notifications : Sends notification using\n[JSON/HTTPS]
+Backend -[#555,dashed]-> Payments : Triggers payment system using\n[JSON/HTTPS]
+
+@enduml

@@ -1,0 +1,40 @@
+﻿@startuml
+title Діаграма А.1 Функціональна структура
+
+skinparam component {
+  BackgroundColor #D6E8F6 ' Світло-синій фон для компонентів
+  BorderColor #555555
+  ArrowColor #333333
+  FontColor #333333
+}
+
+component "TFXweb" <<web_app>> as TFXWeb
+component "TFXiOS" <<ios_app>> as TFXiOS
+component "TFXAndroid" <<android_app>> as TFXAndroid
+
+component "UI Service" <<springboot_svc>> as UIService
+
+component "Document Manager" <<springboot_svc>> as DocumentManager
+component "Contract Manager" <<springboot_svc>> as ContractManager
+component "Counterparty Manager" <<springboot_svc>> as CounterpartyManager
+component "Fees and Commissions Manager" <<springboot_svc>> as FeesCommissionsManager
+component "Payment Service" <<springboot_svc>> as PaymentService
+
+component "Document Store" <<springboot_svc>> as DocumentStore
+component "Payment Gateway" <<3rdparty_server>> as PaymentGateway
+
+TFXWeb --> UIService
+TFXiOS --> UIService
+TFXAndroid --> UIService
+
+UIService --> DocumentManager
+UIService --> ContractManager
+UIService --> CounterpartyManager
+UIService --> FeesCommissionsManager
+UIService --> PaymentService
+
+DocumentManager --> DocumentStore
+ContractManager --> DocumentStore
+PaymentService --> PaymentGateway
+
+@enduml

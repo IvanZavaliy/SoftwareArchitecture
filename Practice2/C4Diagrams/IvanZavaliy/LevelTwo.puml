@@ -1,0 +1,36 @@
+﻿@startuml
+!include <C4/C4_Container.puml>
+
+title Container diagram - EG User Account
+LAYOUT_TOP_DOWN()
+
+Person(customer, "Customer", "A EG customer with valid account")
+
+System_Ext(notifications, "Notifications", "Sends notification to user email and devices")
+System_Ext(payments, "Payments", "Manages direct debit, card payments")
+
+System_Boundary(eg_user_account, "EG User Account") {
+    Container(web_app, "Web App", "Node.js, JavaScript", "Renders login page with necessary assets")
+    Container(spa, "Single page app", "JavaScript and React", "Provides user capabilities based on their plan")
+    Container(mobile_app, "Mobile App", "Android", "Provides user capabilities based on their plan")
+    Container(backend_api, "Backend API app", "Node.js, JavaScript", "Provides User account management via JSON/HTTPS API")
+    ContainerDb(db, "Database", "MariaDB", "Stores user accounts, billing, plans, payment details etc.")
+}
+
+Rel(customer, web_app, "Visits egenergy.com/login using", "HTTPS")
+Rel(customer, spa, "Views account, submit readings using")
+Rel(customer, mobile_app, "Views account, submit readings using")
+
+Rel_Back(web_app, customer, "Delivers to user browser")
+
+Rel(spa, backend_api, "Makes API calls to", "JSON/HTTPS")
+Rel(mobile_app, backend_api, "Makes API calls to", "JSON/HTTPS")
+
+Rel_Down(backend_api, db, "Reads from and writes to", "PDO")
+
+Rel(backend_api, notifications, "Sends notification using", "JSON/HTTPS")
+Rel(backend_api, payments, "Triggers payment system using", "JSON/HTTPS")
+
+Rel(notifications, customer, "Sends notifications to")
+
+@enduml

@@ -1,0 +1,37 @@
+﻿@startuml
+title Діаграма А.5 Інформаційне подання — модель даних
+
+skinparam style strictuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+
+class Document
+class "Shipping Document"
+class "Letter of Credit"
+class Good
+class Payment
+class Buyer
+class Seller
+class Counterparty
+class "     Account     "
+class "       Bank       "
+
+Document <|-right- "Shipping Document"
+"Shipping Document" -down- Good : "n" "n"
+Good -right- Payment : "1" "1"
+Document <|-down- "Letter of Credit"
+Good "n item" -down- "1 payment_for" "Letter of Credit"
+Buyer -[hidden]down- Seller
+Payment -[hidden]down- Buyer
+"Letter of Credit" -right- Buyer : "n" "1"
+"Letter of Credit" -- Seller : "n" "1" 
+(Buyer, Seller) --|> Counterparty
+"Letter of Credit" -down- "       Bank       " : "n" buyers_bank "1"
+"Letter of Credit" -- "       Bank       " : "n" sellers_bank "1"
+"       Bank       " "1 issuer" -right- "n account" "     Account     "
+Counterparty *--- "     Account     "
+Payment "transition n" -- " account 1" "     Account     "
+
+@enduml

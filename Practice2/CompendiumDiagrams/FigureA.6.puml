@@ -1,0 +1,52 @@
+﻿@startuml
+title Діаграма A.6 Подання розгортання
+skinparam componentStyle uml2
+
+package "Deployment" {
+
+    node "aws_api_gateway" <<aws_api_gateway>> as ApiGw {
+        artifact tfx_api <<tfx_api>>
+    }
+
+    node "kubernetes/istio" <<kubernetes/istio>> as K8s {
+
+        component uiservice.jar <<container>>
+        component tfxui.war <<container>>
+
+        component Counterpartyservice.jar <<container>>
+        component paymentservice.jar <<container>>
+
+        component contractservice.jar <<container>>
+        component feescommservice.jar <<container>>
+        component documentservice.jar <<container>>
+        component documentstore.jar <<container>>
+    }
+
+    node "linux_vm" <<linux_vm>> as LinuxVm {
+        component payment_gateway <<OS_process>>
+    }
+
+    node "aws_rds" <<aws_rds>> as Rds {
+        component counterparty_db <<postgres_schema>>
+        component fandc_db <<postgres_schema>>
+        component docsvc_db <<postgres_schema>>
+        component contract_db <<postgres_schema>>
+    }
+
+    node "aws_dynamo_db" <<aws_dynamo_db>> as DynamoDb {
+        component payment_db <<dynamo_schema>>
+    }
+
+    node "aws_document_db" <<aws_document_db>> as DocumentDb {
+        component document_db <<docdb_schema>>
+    }
+
+    ApiGw --> K8s
+
+    K8s -right-> LinuxVm
+
+    K8s --> Rds
+    K8s --> DynamoDb
+    K8s --> DocumentDb
+}
+@enduml

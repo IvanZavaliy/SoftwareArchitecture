@@ -1,0 +1,24 @@
+﻿@startuml
+!include <C4/C4_Context.puml>
+
+title System context diagram
+LAYOUT_TOP_DOWN()
+
+Person(customer, "Customer", "A EG customer with valid account")
+
+System_Ext(notifications, "Notifications", "Pushes notification to user's device")
+System_Ext(payments, "Payments", "Manages direct debit, card payments")
+
+Enterprise_Boundary(eg_plc, "EG PLC (Enterprise)") {
+    System(user_account, "EG User Account", "Allows customer to view information about their account and share meter readings")
+    System(backend, "EG Backend", "Stores all core information, user accounts, billing details etc.")
+}
+
+Rel(customer, user_account, "Uses")
+Rel(user_account, backend, "Uses")
+Rel(user_account, notifications, "Sends notification using")
+Rel(backend, payments, "Raises payment using")
+
+Rel_Back(notifications, customer, "Sends notification to")
+
+@enduml

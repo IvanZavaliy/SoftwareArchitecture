@@ -1,0 +1,67 @@
+﻿@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+'----------------- CUSTOM COLORS -----------------
+!define Blue #2F6DB2
+!define Grey #C8C8C8
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+  RoundCorner 20
+}
+skinparam shadowing false
+
+'----------------- TITLE -----------------
+title System context diagram
+
+'----------------- PERSON (Customer) -----------------
+Person(customer, "Customer", "A EG customer\nwith valid account") {
+}
+
+' Імітація синього фону під користувачем
+skinparam person {
+  BackgroundColor Blue
+  BorderColor Blue
+}
+
+'----------------- SYSTEM BOUNDARY -----------------
+System_Boundary(sb, "") {
+
+    System(egUser, "EG User Account", "Allows customer to\nview information about\ntheir account and\nshare meter readings") {
+    }
+    System(egBackend, "EG Backend", "Stores all core\ninformation, user\naccounts, billing details\netc.") {
+    }
+    System(notifications, "Notifications", "Pushes notification\nto user's device") {
+    }
+    System(payments, "Payments", "Manages direct debit,\ncard payments") {
+    }
+
+}
+
+'----------------- CUSTOM COLORS FOR SYSTEMS -----------------
+' Blue box
+skinparam rectangle<<bluebox>> {
+  BackgroundColor Blue
+  BorderColor Blue
+  FontColor white
+}
+' Grey box
+skinparam rectangle<<greybox>> {
+  BackgroundColor Grey
+  BorderColor Grey
+}
+
+' Apply color stereotypes
+egUser <<bluebox>>
+notifications <<greybox>>
+payments <<greybox>>
+egBackend <<greybox>>
+
+'----------------- RELATIONSHIPS -----------------
+Rel(customer, egUser, "Uses", "dashed")
+Rel(egUser, notifications, "Sends notification using", "dashed")
+Rel(notifications, customer, "Sends notification to", "dashed")
+Rel(egUser, egBackend, "Uses", "dashed")
+Rel(egUser, payments, "Raises payment using", "dashed")
+
+@enduml
