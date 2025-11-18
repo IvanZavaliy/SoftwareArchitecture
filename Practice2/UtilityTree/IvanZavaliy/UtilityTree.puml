@@ -1,0 +1,47 @@
+﻿@startwbs
+<style>
+wbsDiagram {
+  BackgroundColor white
+  LineColor #424242
+  node {
+    BackgroundColor white
+    LineColor #424242
+    RoundCorner 10
+  }
+  :depth(0) {
+      BackgroundColor #E3F2FD
+      LineColor #1565C0
+      FontSize 16
+      FontStyle bold
+  }
+  :depth(1) {
+      BackgroundColor #F3E5F5
+      LineColor #6A1B9A
+      FontSize 14
+      FontStyle bold
+  }
+  :depth(2) {
+      BackgroundColor #FFF3E0
+      LineColor #EF6C00
+      FontSize 12
+      MaximumWidth 250
+  }
+}
+</style>
+
+* Доступність (Availability)
+
+** Відмовостійкість\n(Fault Tolerance)
+*** <b>(СЦ-1)</b> Збій Master-вузла БД\n<i>Пріоритет: [Високий / Високий]</i>
+*** <b>(СЦ-2)</b> "Зависання" User Service (deadlock)\n<i>Пріоритет: [Високий / Низький]</i>
+*** <b>(СЦ-3)</b> Регіональний збій CDN\n<i>Пріоритет: [Високий / Високий]</i>
+
+** Плавна Деградація\n(Graceful Degradation)
+*** <b>(СЦ-4)</b> Збій Image Processing Service\n<i>Пріоритет: [Високий / Високий]</i>
+*** <b>(СЦ-5)</b> Збій Notification Service\n<i>Пріоритет: [Низький / Низький]</i>
+*** <b>(СЦ-6)</b> Повільна відповідь User Service\n<i>Пріоритет: [Високий / Середній]</i>
+
+** Відновлюваність\n(Recoverability)
+*** <b>(СЦ-7)</b> Hotfix / Zero Downtime Deployment\n<i>Пріоритет: [Високий / Високий]</i>
+
+@endwbs
