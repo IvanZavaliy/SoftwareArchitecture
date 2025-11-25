@@ -24,5 +24,3 @@ C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task1\obj\Debug\n
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task1\obj\Debug\net9.0\ref\Task1.dll
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task1\bin\Debug\net9.0\Task1.staticwebassets.runtime.json
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task1\obj\Debug\net9.0\compressed\nfdfkncm2l-cisuqcl47y.gz
-C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task1\obj\Debug\net9.0\Task1.RazorAssemblyInfo.cache
-C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task1\obj\Debug\net9.0\Task1.RazorAssemblyInfo.cs

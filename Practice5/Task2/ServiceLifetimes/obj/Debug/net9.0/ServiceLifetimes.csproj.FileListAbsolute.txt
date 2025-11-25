@@ -33,3 +33,5 @@ C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLife
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.pdb
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.genruntimeconfig.cache
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ref\ServiceLifetimes.dll
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.RazorAssemblyInfo.cache
+C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.RazorAssemblyInfo.cs

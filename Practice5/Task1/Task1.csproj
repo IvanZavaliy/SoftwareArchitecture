@@ -7,4 +7,8 @@
         <RootNamespace>Practice5</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

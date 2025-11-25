@@ -4,8 +4,7 @@
     {
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
-        
-        // Singleton та Transient можна безпечно ін'єктувати в конструктор
+
         private readonly IOperationSingleton _singletonOperation;
         private readonly IOperationTransient _transientOperation;
 
@@ -18,7 +17,6 @@
             _transientOperation = transientOperation;
         }
 
-        // ВАЖЛИВО: Scoped сервіс ін'єктується ТУТ, а не в конструкторі
         public async Task InvokeAsync(HttpContext context, IOperationScoped scopedOperation)
         {
             _logger.LogInformation("Middleware Transient: " + _transientOperation.OperationId);

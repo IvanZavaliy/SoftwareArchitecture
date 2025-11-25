@@ -7,7 +7,7 @@ namespace Practice5
     {
         public Operation()
         {
-            OperationId = Guid.NewGuid().ToString()[^4..]; // Беремо останні 4 символи для зручності
+            OperationId = Guid.NewGuid().ToString()[^4..];
         }
 
         public string OperationId { get; }
