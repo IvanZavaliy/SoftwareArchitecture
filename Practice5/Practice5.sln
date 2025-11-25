@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLifetimes", "Task2\ServiceLifetimes\ServiceLifetimes.csproj", "{7FE3AE16-D076-44F7-BE7A-C6A51492A2DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacDemo", "Task3\AutofacDemo\AutofacDemo.csproj", "{FAB2798F-D05A-420A-93DC-73E005BE27D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{7FE3AE16-D076-44F7-BE7A-C6A51492A2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE3AE16-D076-44F7-BE7A-C6A51492A2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE3AE16-D076-44F7-BE7A-C6A51492A2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB2798F-D05A-420A-93DC-73E005BE27D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB2798F-D05A-420A-93DC-73E005BE27D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB2798F-D05A-420A-93DC-73E005BE27D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB2798F-D05A-420A-93DC-73E005BE27D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

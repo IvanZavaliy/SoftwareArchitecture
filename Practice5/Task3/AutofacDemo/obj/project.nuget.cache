@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/OSPpC8eSUo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ivanz\\Documents\\GitHub\\SoftwareArchitecture\\Practice5\\Task3\\AutofacDemo\\AutofacDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ivanz\\.nuget\\packages\\autofac\\9.0.0\\autofac.9.0.0.nupkg.sha512",
+    "C:\\Users\\ivanz\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.0\\system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

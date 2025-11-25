@@ -19,7 +19,6 @@ C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLife
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.AssemblyInfoInputs.cache
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.AssemblyInfo.cs
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.csproj.CoreCompileInputs.cache
-C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\ServiceLifetimes.sourcelink.json
 C:\Users\ivanz\Documents\GitHub\SoftwareArchitecture\Practice5\Task2\ServiceLifetimes\obj\Debug\net9.0\scopedcss\bundle\ServiceLifetimes.styles.css
