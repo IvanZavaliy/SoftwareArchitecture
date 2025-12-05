@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAPI", "DemoAPI\DemoAPI.csproj", "{0DF109EE-0B66-4E68-B94C-3F633FC63643}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement", "SchoolManagement\SchoolManagement.csproj", "{AB521087-6A14-44BC-90A9-18FE3AB4DBFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DF109EE-0B66-4E68-B94C-3F633FC63643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF109EE-0B66-4E68-B94C-3F633FC63643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF109EE-0B66-4E68-B94C-3F633FC63643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF109EE-0B66-4E68-B94C-3F633FC63643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB521087-6A14-44BC-90A9-18FE3AB4DBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB521087-6A14-44BC-90A9-18FE3AB4DBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB521087-6A14-44BC-90A9-18FE3AB4DBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB521087-6A14-44BC-90A9-18FE3AB4DBFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

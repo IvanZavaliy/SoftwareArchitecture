@@ -1,0 +1,25 @@
+﻿@model SchoolManagement.Models.StudentEntity
+
+<div class="container">
+    <h2>Delete Student</h2>
+    <form asp-action="DeleteStudent" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label>Name</label>
+            <input asp-for="Name" class="form-control" readonly="readonly" />
+        </div>
+        <div class="mb-3">
+            <label>Age</label>
+            <input asp-for="Age" class="form-control" readonly="readonly" />
+        </div>
+        <div class="mb-3">
+            <label>Standard</label>
+            <input asp-for="Standard" class="form-control" readonly="readonly" />
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input asp-for="EmailAddress" class="form-control" readonly="readonly" />
+        </div>
+        <button type="submit" class="btn btn-warning">Delete</button>
+    </form>
+</div>
